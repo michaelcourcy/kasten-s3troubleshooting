@@ -64,7 +64,7 @@ you can skip this section if you don't use aws infrastructure.
 
 ### The default region 
 There is always a default region defined for every api call 
-- defined by the AWS_DEFAULT_REGION en vars or in the profile credentials 
+- defined by the AWS_DEFAULT_REGION env vars or in the profile credentials 
 - if not defined by the above then us-west-2 is assumed
 
 ### the region in the endpoint-url
