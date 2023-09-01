@@ -87,7 +87,7 @@ There is always a default region defined for every api call
 When you use the `--endpoint-url` option in the command line region for endpoint 
 are applied following this rule :  
 - `https://s3.amazonaws.com` is for us-east-1 by default 
-- `https://s3.<REGION>.amazonaws.com` is for <REGION>
+- `https://s3.<REGION>.amazonaws.com` is for `<REGION>`
 - not defining the option `--endpoint-url` then the default region is used `https://s3.<DEFAULT_REGION>.amazonaws.com`
 
 
