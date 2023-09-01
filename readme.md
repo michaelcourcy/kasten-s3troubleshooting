@@ -1,4 +1,4 @@
-# connectivity and operational test between k8s and ontap s3
+# Troubleshoot connectivity issue between k8s and the s3 service
 
 The goal of this test is to understand if the connectivity and operation issue 
 we experience between Kasten K10 and a S3 service is coming from Kasten or from a 
@@ -39,6 +39,20 @@ export AWS_SECRET_ACCESS_KEY=GgqnMqhtwYvYYA/UARoW35l3U1/OIRNWfPRMkdX
 export AWS_DEFAULT_REGION=us-east-1
 aws s3 ls
 # output the list of bucket if the user has ListBucket authorization 
+```
+
+If you are not using AWS S3 service but another S3 compatible service 
+you'll have to use the option `--endpoint-url`, for instance in the 
+example we'll show later in this document :
+
+```
+aws s3 --endpoint-url http://minio:9000/ ls
+```
+
+If the endpoint is using https protocol but not expose valid certificate 
+use the `--no-verify-ssl` option.
+```
+aws s3 --endpoint-url https://minio:9443/ --no-verify-ssl ls
 ```
 
 ## Notes about aws region and endpoint url 
