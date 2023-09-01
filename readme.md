@@ -1,9 +1,12 @@
-# Troubleshoot connectivity issue between k8s and the s3 service
+# Troubleshoot connectivity issue between kasten and the s3 service
 
-The goal of this test is to understand if the connectivity and operation issue 
-we experience between Kasten K10 and a S3 service is coming from Kasten or from a 
-network/configuration issue. Many issue can be caused by reason that are not 
-due to Kasten, for instance : 
+The goal of this guide is to help you troubleshoot connectivity and operation 
+issue between Kasten K10 and a S3 service. You'll disciminate if the issue is 
+coming from Kasten being incompatible with a non standard s3 implementation
+or from a network/configuration issue. 
+
+Many issue can be caused by reason that are not due to Kasten being incompatible with 
+a non standard S3 implementation, for instance : 
 - network issue, for instance firewall that drop headers between k8s and s3
 - credential issue, for instance an access key or secret key was improperly 
 copied
