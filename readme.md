@@ -1,12 +1,12 @@
-# Troubleshoot connectivity issue between kasten and the s3 service
+# Troubleshoot connectivity between kasten and S3
 
 The goal of this guide is to help you troubleshoot connectivity and operation 
-issue between Kasten K10 and a S3 service. You'll disciminate if the issue is 
+issue between Kasten K10 and a S3 service. You'll discriminate if the issue is 
 coming from Kasten being incompatible with a non standard s3 implementation
 or from a network/configuration issue. 
 
-Many issue can be caused by reason that are not due to Kasten being incompatible with 
-a non standard S3 implementation, for instance : 
+Many issue can be caused by reasons that are not due to Kasten being incompatible with 
+a non standard S3 implementation: 
 - network issue, for instance firewall that drop headers between k8s and s3
 - credential issue, for instance an access key or secret key was improperly 
 copied
@@ -18,7 +18,7 @@ A simple way to discriminate between Kasten and the other reasons above is to
 spin up an AWS CLI client pod inside the kasten-io namespace : 
 
 - If the client is able to do a put operation on the bucket the problem come 
-from Kasten
+from Kasten being incompatible with this specific implementation of S3.
 - If not the problem is not coming from Kasten but from one of the reason above
 
 ## Lauching the test 
@@ -86,9 +86,9 @@ There is always a default region defined for every api call
 ### the region in the endpoint-url
 When you use the `--endpoint-url` option in the command line region for endpoint 
 are applied following this rule :  
-- https://s3.amazonaws.com is for us-east-1 by default 
-- https://s3.<REGION>.amazonaws.com is for <REGION>
-- not defining the option `--endpoint-url` then the default region is used https://s3.<DEFAULT_REGION>.amazonaws.com
+- `https://s3.amazonaws.com` is for us-east-1 by default 
+- `https://s3.<REGION>.amazonaws.com` is for <REGION>
+- not defining the option `--endpoint-url` then the default region is used `https://s3.<DEFAULT_REGION>.amazonaws.com`
 
 
 *The default region and the region used by the endpoint must match* otherwise you'll get this kind of error ! 
@@ -115,7 +115,7 @@ Notice that all s3 api do not handles the region information the same way, some 
 
 ## test with a minio instance 
 
-Thanks to [adityajoshi12](https://github.com/adityajoshi12/kubernetes-development) for sharing this simple minio deployment that I use in my repo
+Thanks to [adityajoshi12](https://github.com/adityajoshi12/kubernetes-development) for sharing this simple minio deployment.
 
 Deploy minio in the cluster, this is a very simple minio deployment using minio/minio123 as access and secret key.
 
@@ -128,7 +128,7 @@ Once minio up and running open the console with port-forward
 kubectl --namespace kasten-io port-forward service/minio 9090:9090  
 ```
 
-Open your browser to http://localhost:9090, connect to the interface with minio/minio123 and create the bucket test.
+Open your browser to http://localhost:9090, connect to the interface with minio/minio123 and create the bucket `test`.
 
 Now comeback to the s3client 
 ```
