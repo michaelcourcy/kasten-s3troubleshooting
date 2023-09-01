@@ -55,6 +55,19 @@ use the `--no-verify-ssl` option.
 aws s3 --endpoint-url https://minio:9443/ --no-verify-ssl ls
 ```
 
+## The debug option 
+
+When the AWS CLI reports an error that you don't immediately understand, 
+or produces results that you don't expect, you can get more detail about 
+the error by running the command again with the --debug option. With this 
+option, the AWS CLI outputs details about every step it takes to process 
+your command. The details in the output can help you to determine when 
+the error occurs and provides clues about where it started.
+
+```
+aws s3 ls --debug
+```
+
 ## Notes about aws region and endpoint url 
 
 This is a discussion about the aws cli s3 client when using 
