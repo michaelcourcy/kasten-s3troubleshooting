@@ -154,6 +154,16 @@ You should see
 ```
 2023-09-01 08:02:17         15 test.txt
 ```
+### Performance test 
+
+Sometime you need to check the bandwidth between your s3 endpoint and the pods. 
+Create a 5Gb file from urandom and copy it to the s3 endpoint 
+```
+dd if=/dev/urandom of=bigfile bs=1G count=5
+aws s3 --endpoint-url http://minio:9000/ cp bigfile s3://test/folder-for-test/bigfile 
+```
+
+And note the time it took to execute this transfer.
 
 ## uninstall 
 
