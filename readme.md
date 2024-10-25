@@ -163,7 +163,7 @@ First install the `mc` tool. On mac you can just
 brew install minio/stable/mc
 ```
 
-But more information can be found there.
+But more information can be found [here](https://min.io/docs/minio/linux/reference/minio-mc.html#quickstart).
 
 Then create a local alias by port-forwarding the 9000 port
 ```
