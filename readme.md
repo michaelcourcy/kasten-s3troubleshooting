@@ -154,6 +154,28 @@ You should see
 ```
 2023-09-01 08:02:17         15 test.txt
 ```
+### Follow the minio trace
+
+Minio comes with a nice feature called `mc trace` that let you follow up all the operations done on the minio instance.
+
+First install the `mc` tool. On mac you can just 
+```
+brew install minio/stable/mc
+```
+
+But more information can be found there.
+
+Then create a local alias by port-forwarding the 9000 port
+```
+kubectl --namespace kasten-io port-forward service/minio 9000:9000
+```
+
+In another terminal create the alias and trace 
+```
+mc alias set myminio http://localhost:9000 minio minio123
+mc admin trace myminio
+```
+
 ### Performance test 
 
 Sometime you need to check the bandwidth between your s3 endpoint and the pods. 
